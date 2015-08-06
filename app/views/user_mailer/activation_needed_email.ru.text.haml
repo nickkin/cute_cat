@@ -1,0 +1,5 @@
+%h1="Пользователь #{@user.email}"
+
+%p
+  Подтверди email для просмотра няшных котиков
+%p=activate_url(@user.activation_token)

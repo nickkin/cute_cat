@@ -1,0 +1,14 @@
+ru:
+  exceptions:
+    invite_friend:
+      friend_watching_error: "Ваш друг уже смотрит котиков"
+      friend_already_invited_error: "Вашего друга уже ктото пригласил"
+      friend_many_invitation_error: "Приглашение можно отправлять не больше 1 раз в течении %{days} дня"
+      invited_friend_not_valid_error: "Проверьте корректность ввода email вашего друга"
+  controller:
+    user:
+      successful_registration_user: "Регистрация успешна. Проверьте почту для подтверждения пользователя"
+      successful_activate: "Позравляю. Вы успешно активировали пользователя. Наслаждайтесь котиком"
+      successful_invite: "Приглашение вашему другу выслано"
+      failure_registration_user: "Регистрация провалена. Проверьте корректность вводимых данных"
+      failure_login_user: "Проверьте корректность ввода пароля"

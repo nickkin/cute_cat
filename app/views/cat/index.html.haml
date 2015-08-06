@@ -1,0 +1,47 @@
+.cat
+  .cat-user
+    - case @user.activation_state
+      - when "active"
+        %p Если хочешь поделится с другом этими котиками
+        %p это просто!
+        Введи его
+        = form_tag invite_path, :method => :post do
+          %span.email
+            = email_field_tag :email, "", placeholder: :email
+          %span.actions
+            = submit_tag "и пригласи друга", data: { disable_with: "Приглашаем..." }
+
+      - when "pending"
+
+        %p ждем подтвержения пользователя.
+        %p остался один шаг до няшного котика!
+        %p="Проверь почту #{@user.email}"
+
+      - else
+
+        - if @invite.present?
+          %p="Ваш друг #{@invite.user.email} пригласил вас посмотреть на кошечек."
+          %p="Ваш логин: #{@invite.email}"
+          %p Придумайте себе пароль для регистрации:
+        -else
+          %p Хочешь посмотреть няшного котика?
+          Для этого нужно
+
+        = form_for @user, :method => :post, url: :entrance do |f|
+          - if @invite.present?
+            =f.hidden_field :invite_id, {value: @invite.id}
+          -else
+            твой
+            %span.email
+              = f.email_field :email, placeholder: :email
+            и еще
+          %span.password
+            = f.password_field :password, placeholder: :password, pattern: ".{1,254}"
+          %span.actions
+            = f.submit "посмотреть", data: { disable_with: "начинаем смотреть..." }
+
+    - flash.each do |name, msg|
+      = content_tag :div, msg, class: name
+
+  .cat-image
+    = image_tag "cat_#{@user.activation_state}.jpg", alt: "Няшный котик"

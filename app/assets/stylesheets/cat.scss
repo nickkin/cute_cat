@@ -1,0 +1,56 @@
+// Place all the styles related to the cat controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+  font-family: MuseoSansCyrl300;
+  src: font-url('MuseoSansCyrl-300.otf');
+}
+
+html {
+  background: #F7EFD6 none repeat scroll 0% 0%;
+}
+
+* {
+  font-family: MuseoSansCyrl300;
+  font-size: 20px;
+}
+
+.cat {
+  padding-top: 100px;
+
+  .cat-user {
+    padding-top: 100px;
+    text-align: center;
+    float: left;
+    width: 50%;
+
+    form {
+      display: inline;
+
+      input {
+        text-align: center;
+        text-transform: lowercase;
+        border-radius: 5px;
+        margin-bottom: 20px;
+
+        &[type="submit"] {
+          color: white;
+          font-weight: bolder;
+          width: 100%;
+
+          &:hover {
+            color: black;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .cat-image {
+    text-align: center;
+    float: right;
+    width: 50%;
+  }
+}
